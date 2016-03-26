@@ -48,21 +48,20 @@ placeAnOrder(5);
 placeAnOrder(6);
 
 var mini = {
-    favFood:'achaar',
+    favFood: 'achaar',
     favMovie: 'kung fu panda'
 };
 
 // EVERYTHING IS REFERENCE IN JAVASCRIPT
 var shona = mini
 //shona is a reference to mini
-shona.favFood="chcken";
+shona.favFood = "chcken";
 console.log(mini.favFood);
 
 //this keyword is just a reference to the thing which called it
 
 var littleMini = {
-    printName:function()
-    {
+    printName: function () {
         console.log("My name is little mini");
         console.log(this === littleMini);
     }
@@ -71,10 +70,41 @@ var littleMini = {
 littleMini.printName();
 
 //the default calling context is GLOBAL
-function stupid()
-{
+function stupid() {
     console.log("\ni am stupid");
-    console.log(this===global);
+    console.log(this === global);
 }
 
 stupid();
+
+
+// PROTOTYPING - add additional methods to an existing class
+
+function User() {
+    this.name = "";
+    this.life = 100;
+    this.giveLife = function giveLife(targetPlayer) {
+        targetPlayer.life += 1;
+        console.log(this.name + " gave one life to " + targetPlayer.name);
+    }
+}
+var Shaunak = new User();
+var Manisha = new User();
+
+Shaunak.name = "Shaunak";
+Manisha.name = "Manisha";
+Manisha.giveLife(Shaunak);
+console.log("Shaunak: " + Shaunak.life + " Manisha: " + Manisha.life);
+
+User.prototype.uppercut = function uppercut(targetPlayer){
+    targetPlayer.life -= 3;
+    console.log(this.name + " uppercutted " + targetPlayer.name);
+};
+
+Manisha.uppercut(Shaunak);
+console.log("Shaunak: " + Shaunak.life + " Manisha: " + Manisha.life);
+
+//u can add properties also
+
+User.prototype.magic = 60;
+console.log(Shaunak.magic);
