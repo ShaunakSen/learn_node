@@ -1,23 +1,21 @@
 /**
  * Created by shaunak on 23/3/16.
  */
-function addNumber(a, b)
-{
-    return a+b;
+function addNumber(a, b) {
+    return a + b;
 }
 
-function stupid()
-{}
+function stupid() {
+}
 
-console.log(addNumber(7,10.5));
+console.log(addNumber(7, 10.5));
 console.log(stupid());
 
 // Remember: any function without explicit return statement is going to return undefined
 
 // set a var to an anonymous function
 
-var printloves = function()
-{
+var printloves = function () {
     console.log("mini loves shona");
 }
 printloves();
@@ -25,3 +23,26 @@ printloves();
 //when u store a function in a var u can basically use that var in other functions
 
 setTimeout(printloves, 5000);
+
+
+function placeAnOrder(orderNumber) {
+    console.log("customer order: ", orderNumber);
+    cookAndDeliverFood(function () {
+        console.log('Delivered food order: ' + orderNumber);
+    })
+
+}
+
+
+//time consuming function
+function cookAndDeliverFood(callback) {
+    setTimeout(callback, 5000);
+}
+
+//place the orders
+placeAnOrder(1);
+placeAnOrder(2);
+placeAnOrder(3);
+placeAnOrder(4);
+placeAnOrder(5);
+placeAnOrder(6);
