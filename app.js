@@ -5,9 +5,6 @@ function addNumber(a, b) {
     return a + b;
 }
 
-function stupid() {
-}
-
 console.log(addNumber(7, 10.5));
 console.log(stupid());
 
@@ -108,3 +105,6 @@ console.log("Shaunak: " + Shaunak.life + " Manisha: " + Manisha.life);
 
 User.prototype.magic = 60;
 console.log(Shaunak.magic);
+
+var person = require('./modules');
+person.person();
