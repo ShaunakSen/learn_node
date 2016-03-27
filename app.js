@@ -106,5 +106,35 @@ console.log("Shaunak: " + Shaunak.life + " Manisha: " + Manisha.life);
 User.prototype.magic = 60;
 console.log(Shaunak.magic);
 
-var person = require('./modules');
-person.person();
+//var person = require('./modules');
+//person.printMini();
+//console.log(person.favMovie);
+require('./mini');
+require('./shona');
+
+//CORE MODULES
+//fs is the file system module
+
+var fs = require('fs');
+fs.writeFileSync('corn.txt','Corn is good');
+console.log(fs.readFileSync("corn.txt").toString());
+
+//path module: normalises the no of slashes
+var path = require('path');
+var websiteHome = "Desktop/Bucky//shaunak/index.html";
+var websiteAbout = "Desktop/Bucky/shaunak/about.html";
+
+console.log(path.normalize(websiteHome));//normalises the path
+console.log(path.dirname(websiteAbout));
+console.log(path.basename(websiteAbout));
+console.log(path.extname(websiteAbout));
+
+/*
+setInterval(function(){
+    console.log("mini mini blaah");
+},2000);
+*/
+
+console.log(__dirname);
+console.log(__filename)
+
